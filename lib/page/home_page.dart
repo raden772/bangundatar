@@ -23,7 +23,7 @@ class HomePage extends StatelessWidget {
           Row(
             children: [
               CustomMenu(imageAssets: "assets/blet.jpeg",title: "Lingkaran"),
-              CustomMenu(imageAssets: "assets/blet.jpeg",title: "Lingkaran"),
+              CustomMenu(imageAssets: "assets/blet.jpeg",title: "Lingkaran")
             ],
           ),
         ],
