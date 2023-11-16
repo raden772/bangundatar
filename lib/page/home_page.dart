@@ -24,7 +24,7 @@ class HomePage extends StatelessWidget {
             children: [
               CustomMenu(imageAssets: "assets/blet.jpeg",title: "Lingkaran"),
               CustomMenu(imageAssets: "assets/blet.jpeg",title: "Lingkaran")
-            ],
+            ]
           ),
         ],
       ),
