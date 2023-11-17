@@ -1,24 +1,25 @@
 import 'package:bangun_datar_kelas_b/controller/persegi_controller.dart';
+import 'package:bangun_datar_kelas_b/controller/persegipanjang_controller.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-class PersegiPage extends StatelessWidget {
-  PersegiPage({Key? key}) : super(key: key);
-  final PersegiController _persegiController = Get.put(PersegiController());
+class PanjangPage extends StatelessWidget {
+  PanjangPage({Key? key}) : super(key: key);
+  final PanjangController _panjangController = Get.put(PanjangController());
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("Persegi Page"),
+        title: Text("Persegi Panjang Page"),
       ),
       body: Column(
         children: [
-          Image.asset("assets/persegi.jpeg", height: 100),
+          Image.asset("assets/panjang.jpeg", height: 100),
           Padding(
             padding: const EdgeInsets.all(8.0),
             child: Text(
-              "Persegi",
+              "Persegi Panjang",
               style: TextStyle(color: Colors.black),
             ),
           ),
@@ -29,7 +30,7 @@ class PersegiPage extends StatelessWidget {
             margin: const EdgeInsets.all(8.0),
             padding: const EdgeInsets.all(8.0),
             child: Text(
-                "Persegi merupakan salah satu jenis bangun datar segi empat. Seperti bangun datar lainnya, terdapat beberapa sifat bangun persegi."),
+                "Persegi panjang adalah bangun datar dua dimensi yang dibentuk oleh dua pasang sisi yang masing-masing sama panjang dan sejajar dengan pasangannya, dan memiliki empat buah sudut yang kesemuanya adalah sudut siku-siku."),
           ),
 
           Container(
@@ -43,13 +44,38 @@ class PersegiPage extends StatelessWidget {
                   padding: const EdgeInsets.all(20),
                   child: TextFormField(
                     onChanged: (value) {
-                      _persegiController.sisi = int.parse(value);
+                      _panjangController.panjang = int.parse(value);
                     },
                     decoration: InputDecoration(
                         fillColor: Colors.white,
                         filled: true,
-                        labelText: "Sisi",
-                        hintText: "Masukkan Sisi",
+                        labelText: "Panjang",
+                        hintText: "Masukkan Lebar",
+                        hintStyle: TextStyle(color: Colors.grey.shade400),
+                        contentPadding:
+                        EdgeInsets.symmetric(vertical: 4, horizontal: 8),
+                        border: OutlineInputBorder(
+                            borderSide: BorderSide(width: 1, color: Colors.grey),
+                            borderRadius: BorderRadius.all(Radius.circular(10))),
+                        enabledBorder: OutlineInputBorder(
+                            borderSide: BorderSide(width: 1, color: Colors.grey),
+                            borderRadius: BorderRadius.all(Radius.circular(10))),
+                        focusedBorder: OutlineInputBorder(
+                            borderSide: BorderSide(width: 1, color: Colors.blue),
+                            borderRadius: BorderRadius.all(Radius.circular(10)))),
+                  ),
+                ),
+                Padding(
+                  padding: const EdgeInsets.all(20),
+                  child: TextFormField(
+                    onChanged: (value) {
+                      _panjangController.lebar = int.parse(value);
+                    },
+                    decoration: InputDecoration(
+                        fillColor: Colors.white,
+                        filled: true,
+                        labelText: "Lebar",
+                        hintText: "Masukkan Lebar",
                         hintStyle: TextStyle(color: Colors.grey.shade400),
                         contentPadding:
                         EdgeInsets.symmetric(vertical: 4, horizontal: 8),
@@ -75,7 +101,7 @@ class PersegiPage extends StatelessWidget {
                           padding: const EdgeInsets.all(8.0),
                           child: ElevatedButton(
                               onPressed: () {
-                                _persegiController.hitungLuas();
+                                _panjangController.hitungLuas();
                               },
                               child: Text(
                                 "Hitung Luas",
@@ -86,7 +112,7 @@ class PersegiPage extends StatelessWidget {
                           padding: const EdgeInsets.all(8.0),
                           child: ElevatedButton(
                             onPressed: () {
-                              _persegiController.hitungKeliling();
+                              _panjangController.hitungKeliling();
                             },
                             child: Text(
                               "Hitung Keliling",
@@ -104,8 +130,8 @@ class PersegiPage extends StatelessWidget {
 
 
           Obx(() => Text(
-                _persegiController.hasil.value,
-                style: TextStyle(color: _persegiController.warna.value),
+                _panjangController.hasil.value,
+                style: TextStyle(color: _panjangController.warna.value),
               ))
         ],
       ),
